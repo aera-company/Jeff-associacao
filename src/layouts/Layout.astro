@@ -4,14 +4,22 @@ import "../styles/global.css";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
-const { title = "Landingbase", description = "" } = Astro.props;
+const {
+  title = "Jefferson Lima | Superintendência Comercial",
+  description = "Mais de 40 anos de experiência na indústria, distribuição, varejo e associativismo farmacêutico para contribuir com a construção de uma nova associação de redes independentes do Rio de Janeiro.",
+  image = "/images/og-jefferson.jpg",
+} = Astro.props;
 
-// Só emite canonical absoluto quando `site` estiver definido no astro.config.
+// Só emite canonical/OG absolutos quando `site` estiver definido no astro.config.
 const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site)
   : undefined;
+const ogImage = Astro.site
+  ? new URL(image, Astro.site)
+  : image;
 ---
 
 <!doctype html>
@@ -24,13 +32,29 @@ const canonical = Astro.site
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
-    {description && <meta name="description" content={description} />}
+    <meta name="description" content={description} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    {canonical && <meta property="og:url" content={canonical} />}
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="theme-color" content="#0B2433" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap"
     />
   </head>
   <body>

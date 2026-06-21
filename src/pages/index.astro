@@ -1,605 +1,628 @@
 ---
 import Layout from "../layouts/Layout.astro";
-const year = new Date().getFullYear();
+
+// ── Placeholders de contato (fáceis de editar) ──
+const WHATSAPP = "https://wa.me/55XXXXXXXXXXX";
+const WHATSAPP_MSG =
+  "Olá, Jefferson. Gostaria de conversar sobre a proposta para a Superintendência Comercial da nova associação.";
+const WHATSAPP_LINK = `${WHATSAPP}?text=${encodeURIComponent(WHATSAPP_MSG)}`;
+const EMAIL = "mailto:email@exemplo.com";
 ---
 
-<Layout
-  title="MERUS — Tratamento Físico de Fluidos para Oil & Gas"
-  description="O anel MERUS previne incrustação, corrosão e biofouling em sistemas de fluido industrial e offshore. Sem químicos, sem paradas, sem alteração de processo. Fabricado na Alemanha."
->
+<Layout>
+  <!-- Indicador de progresso da página -->
+  <div class="progress" aria-hidden="true"><span id="progress-bar"></span></div>
 
   <!-- ── NAV ── -->
-  <header class="nav" id="topo">
+  <header class="nav" id="topo" data-nav>
     <div class="nav-inner container">
-      <a href="#topo" class="logo" aria-label="MERUS — página inicial">
-        <img src="/merus-logo2.svg" alt="MERUS" width="100" height="48" />
-        <span class="logo-sep" aria-hidden="true"></span>
-        <img src="/gavea-green.png" alt="Gavea Green" class="logo-gavea" width="92" height="48" />
+      <a href="#inicio" class="brand" aria-label="Jefferson Lima — início">
+        <span class="brand-nome">Jefferson Lima</span>
+        <span class="brand-cargo">Superintendência Comercial</span>
       </a>
       <nav class="nav-links" aria-label="Navegação principal">
-        <a href="#solucao">Solução</a>
-        <a href="#tecnologia">Tecnologia</a>
-        <a href="#aplicacoes">Aplicações</a>
-        <a href="#clientes">Clientes</a>
+        <a href="#inicio">Início</a>
+        <a href="#mercado">Trajetória</a>
+        <a href="#numeros">Resultados</a>
+        <a href="#papel">Contribuição</a>
+        <a href="#plano">Plano inicial</a>
+        <a href="#contato">Contato</a>
       </nav>
-      <a href="#contato" class="btn-nav">Solicitar Avaliação</a>
+      <a href="#contato" class="btn-nav">Falar com Jefferson</a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-mobile" data-menu-toggle>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+      </button>
+    </div>
+    <!-- Menu mobile -->
+    <div class="menu-mobile" id="menu-mobile" data-menu hidden>
+      <a href="#inicio">Início</a>
+      <a href="#mercado">Trajetória</a>
+      <a href="#numeros">Resultados</a>
+      <a href="#papel">Contribuição</a>
+      <a href="#plano">Plano inicial</a>
+      <a href="#contato">Contato</a>
     </div>
   </header>
 
-  <!-- ── HERO ── -->
-  <div class="video-stage" id="vstage">
-    <div class="video-bg" aria-hidden="true">
-      <video id="bgvideo" src="/video-merus-v3.mp4" muted playsinline preload="auto"></video>
-    </div>
-
-  <section id="hero" aria-labelledby="hero-titulo">
-    <div class="container hero-inner">
-
-      <div class="hero-texto">
-        <p class="eyebrow">Fabricado na Alemanha &mdash; Oil &amp; Gas / Industrial</p>
-        <h1 id="hero-titulo">Keeps your pipes clean.</h1>
-        <p class="hero-sub">Tubos livres de incrustações</p>
-        <p class="hero-corpo">
-          Instalado externamente à tubulação, o MERUS Ring transmite oscilações
-          físicas para a água, ajudando a reduzir depósitos, corrosão e biofilme no sistema.
-        </p>
-        <ul class="hero-bullets" role="list">
-          <li>Menos manutenção.</li>
-          <li>Mais eficiência.</li>
-          <li>Maior vida útil.</li>
-        </ul>
-        <div class="hero-acoes">
-          <a href="#contato" class="btn-primario">
-            Solicitar avaliação técnica
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-        <div class="mig-hero">
-          <img src="/made-in-germany.png" alt="Made in Germany" width="110" height="44" loading="eager" />
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ── SOLUÇÃO ── -->
-  <section id="solucao" aria-labelledby="sol-titulo">
-    <div class="container">
-      <div class="section-label">01 &mdash; Solução</div>
-      <h2 id="sol-titulo">Menos impacto,<br>mais eficiência.</h2>
-      <div class="sol-layout">
-        <div class="sol-corpo">
-          <p>
-            Tecnologia alemã para tratamento de água, com alta eficiência
-            operacional e menor impacto ambiental.
+  <main>
+    <!-- ── SEÇÃO 01 — HERO ── -->
+    <section id="inicio" class="hero" aria-labelledby="hero-titulo">
+      <span class="hero-grid" aria-hidden="true"></span>
+      <div class="container hero-inner">
+        <div class="hero-texto reveal">
+          <p class="eyebrow">Superintendência Comercial</p>
+          <h1 id="hero-titulo">
+            Mais de 40 anos de experiência para ajudar a construir uma
+            associação forte desde o <span class="hl">primeiro dia</span>.
+          </h1>
+          <p class="hero-sub">
+            Jefferson Lima reúne conhecimento da indústria, distribuição, varejo
+            e associativismo farmacêutico para liderar a estruturação comercial,
+            a expansão e o relacionamento institucional da nova associação de
+            redes independentes do Rio de Janeiro.
           </p>
-        </div>
-        <ul class="sol-bullets" role="list">
-          <li>Sem químicos.</li>
-          <li>Sem consumo de energia.</li>
-          <li>Sem manutenção recorrente.</li>
-          <li>05 anos de duração.</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  </div><!-- /video-stage -->
-
-  <!-- ── FAIXA DE INDICADORES ── -->
-  <section class="faixa-stats" aria-label="Indicadores MERUS">
-    <div class="container faixa-inner">
-      <div class="faixa-item">
-        <span class="faixa-n">70+</span>
-        <span class="faixa-l">Países</span>
-      </div>
-      <span class="faixa-sep" aria-hidden="true"></span>
-      <div class="faixa-item">
-        <span class="faixa-n">25+</span>
-        <span class="faixa-l">Anos em campo</span>
-      </div>
-      <span class="faixa-sep" aria-hidden="true"></span>
-      <div class="faixa-item">
-        <span class="faixa-n">0</span>
-        <span class="faixa-l">Químicos adicionados</span>
-      </div>
-      <span class="faixa-sep" aria-hidden="true"></span>
-      <div class="faixa-item">
-        <span class="faixa-n">90%</span>
-        <span class="faixa-l">Menos incrustações</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── TECNOLOGIA ── -->
-  <section id="tecnologia" aria-labelledby="tec-titulo">
-    <div class="container">
-
-      <div class="tec-top">
-        <div class="tec-texto">
-          <div class="section-label">02 &mdash; A Tecnologia</div>
-          <h2 id="tec-titulo">Como o MERUS funciona</h2>
-          <p>
-            O MERUS Ring é instalado ao redor da tubulação e transmite oscilações
-            físicas para a água através da parede do tubo. Essas oscilações influenciam
-            o comportamento das partículas no fluxo, contribuindo para maior solubilidade
-            e menor formação de depósitos.
-          </p>
-          <div class="tec-destaque">
-            <strong>Instalado na infraestrutura existente</strong>
-            <span>Sem modificação de tubulação, soldagem ou penetração.</span>
+          <div class="hero-id">
+            <strong>Jefferson Lima</strong>
+            <span>Administrador de Empresas&ensp;|&ensp;MBA em Gestão de Negócios</span>
+          </div>
+          <div class="hero-acoes">
+            <a href="#mercado" class="btn-primario">
+              Conheça a trajetória
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M8 3v10M4 9l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </a>
+            <a href="#contato" class="btn-secundario">Falar com Jefferson</a>
           </div>
         </div>
-
-        <figure class="tec-video">
-          <video
-            src="/merus-agua.mp4"
-            autoplay loop muted playsinline preload="metadata"
-          ></video>
+        <figure class="hero-foto reveal">
+          <span class="hero-foto-glow" aria-hidden="true"></span>
+          <img
+            src="/images/jefferson-hero.jpg"
+            alt="Jefferson Lima, executivo do mercado farmacêutico"
+            width="700"
+            height="600"
+            fetchpriority="high"
+          />
+          <figcaption class="hero-foto-tag">
+            <span class="dot" aria-hidden="true"></span>
+            Executivo do Mercado Farmacêutico
+          </figcaption>
         </figure>
       </div>
+    </section>
 
-      <div class="data-callout" aria-label="Comparativo de taxa de corrosão em campo">
-        <div class="data-grid">
-          <div class="data-block">
-            <span class="data-n">1.03</span>
-            <span class="data-unit">MPY</span>
-            <span class="data-label">Com MERUS</span>
-            <span class="data-sub">Trocador 101-E9A</span>
+    <!-- ── SEÇÃO 02 — VISÃO COMPLETA DO MERCADO ── -->
+    <section id="mercado" class="bloco" aria-labelledby="mercado-titulo">
+      <div class="container">
+        <div class="bloco-head reveal">
+          <div class="section-label">Trajetória &mdash; Visão completa do mercado</div>
+          <h2 id="mercado-titulo">
+            Experiência construída em todos os elos da cadeia farmacêutica.
+          </h2>
+          <p class="section-corpo">
+            Ao longo de mais de quatro décadas, Jefferson Lima atuou em posições
+            de liderança na indústria farmacêutica, distribuição, varejo e
+            desenvolvimento de redes associativistas. Essa visão ampla permite
+            compreender as necessidades dos empresários, os interesses da
+            indústria, os desafios da distribuição e as oportunidades de
+            crescimento coletivo.
+          </p>
+        </div>
+
+        <div class="cadeia">
+          <article class="cadeia-card reveal">
+            <span class="cadeia-num">01</span>
+            <h3>Indústria</h3>
+            <p>
+              Início da trajetória como propagandista, avançando até a posição de
+              Gerente Regional de Vendas.
+            </p>
+          </article>
+          <article class="cadeia-card reveal">
+            <span class="cadeia-num">02</span>
+            <h3>Distribuição</h3>
+            <p>
+              Atuação como Gerente Comercial, Diretor Comercial e Gerente Nacional
+              responsável por redes associativistas.
+            </p>
+          </article>
+          <article class="cadeia-card reveal">
+            <span class="cadeia-num">03</span>
+            <h3>Varejo</h3>
+            <p>
+              Gestão direta de operações, desenvolvimento comercial e expansão de
+              redes de farmácias.
+            </p>
+          </article>
+          <article class="cadeia-card reveal">
+            <span class="cadeia-num">04</span>
+            <h3>Associativismo</h3>
+            <p>
+              Atração de associados, negociação com parceiros e criação de
+              oportunidades comerciais para redes independentes.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── SEÇÃO 03 — NÚMEROS DE IMPACTO ── -->
+    <section id="numeros" class="numeros" aria-labelledby="numeros-titulo">
+      <span class="numeros-grid" aria-hidden="true"></span>
+      <div class="container">
+        <div class="bloco-head reveal">
+          <div class="section-label section-label--claro">Resultados</div>
+          <h2 id="numeros-titulo" class="tx-claro">
+            Resultados que comprovam a experiência.
+          </h2>
+        </div>
+
+        <div class="numeros-grade">
+          <div class="num-card reveal">
+            <div class="num-valor">
+              <span class="num" data-count="60">60</span>
+              <span class="num-seta" aria-hidden="true">→</span>
+              <span class="num num--alvo" data-count="246">246</span>
+              <span class="num-unid">lojas</span>
+            </div>
+            <p>
+              Participação direta na expansão da Rede Drogarias Max, contribuindo
+              para o crescimento e fortalecimento da rede de lojas franqueadas.
+            </p>
           </div>
-          <div class="data-vs" aria-hidden="true">vs</div>
-          <div class="data-block data-block--ruim">
-            <span class="data-n">2.87</span>
-            <span class="data-unit">MPY</span>
-            <span class="data-label">Sem MERUS</span>
-            <span class="data-sub">Trocador 101-E9B</span>
+          <div class="num-card reveal">
+            <div class="num-valor">
+              <span class="num" data-count="22">22</span>
+              <span class="num-seta" aria-hidden="true">→</span>
+              <span class="num num--alvo" data-count="40">40</span>
+              <span class="num-unid">lojas</span>
+            </div>
+            <p>
+              Oito anos de atuação na gestão e expansão de uma operação direta de
+              varejo farmacêutico.
+            </p>
+          </div>
+          <div class="num-card reveal">
+            <div class="num-valor">
+              <span class="num" data-count="130">130</span><span class="num-mais">+</span>
+              <span class="num-unid">profissionais</span>
+            </div>
+            <p>
+              Liderança de estruturas comerciais com mais de 100 vendedores e 30
+              operadores de televendas.
+            </p>
+          </div>
+          <div class="num-card reveal">
+            <div class="num-valor">
+              <span class="num" data-count="17">17</span>
+              <span class="num-unid">anos</span>
+            </div>
+            <p>
+              Atuação como Diretor Comercial de uma distribuidora regional,
+              liderando negociações e parcerias com indústrias nacionais e
+              multinacionais.
+            </p>
           </div>
         </div>
-        <p class="data-note">
-          Mesmo sistema, mesma plataforma, mesmo fluido.
-          Monitoramento de campo por 3 meses. Resultados refletem as condições da instalação monitorada.
+      </div>
+    </section>
+
+    <!-- ── SEÇÃO 04 — PAPEL COMO SUPERINTENDENTE COMERCIAL ── -->
+    <section id="papel" class="bloco" aria-labelledby="papel-titulo">
+      <div class="container">
+        <div class="bloco-head reveal">
+          <div class="section-label">Contribuição &mdash; Como Superintendente Comercial</div>
+          <h2 id="papel-titulo">Liderança comercial do planejamento à execução.</h2>
+          <p class="section-corpo">
+            Como Superintendente Comercial, Jefferson poderá liderar a
+            estruturação da área comercial da associação, integrando estratégia,
+            relacionamento, negociação, expansão e desenvolvimento de associados.
+          </p>
+        </div>
+
+        <ol class="frentes" aria-label="Frentes de atuação">
+          <li class="frente reveal">
+            <span class="frente-passo">01</span>
+            <div class="frente-corpo">
+              <h3>Estruturação comercial</h3>
+              <p>
+                Criação do planejamento, metas, processos, indicadores e rotinas
+                de acompanhamento da associação.
+              </p>
+            </div>
+          </li>
+          <li class="frente reveal">
+            <span class="frente-passo">02</span>
+            <div class="frente-corpo">
+              <h3>Desenvolvimento de associados</h3>
+              <p>
+                Prospecção de novas redes, aproximação com empresários e
+                fortalecimento do relacionamento com os associados.
+              </p>
+            </div>
+          </li>
+          <li class="frente reveal">
+            <span class="frente-passo">03</span>
+            <div class="frente-corpo">
+              <h3>Negociação estratégica</h3>
+              <p>
+                Construção de acordos comerciais, verbas de trade, projetos de
+                mídia e oportunidades conjuntas.
+              </p>
+            </div>
+          </li>
+          <li class="frente reveal">
+            <span class="frente-passo">04</span>
+            <div class="frente-corpo">
+              <h3>Relações institucionais</h3>
+              <p>
+                Representação da associação junto à indústria, distribuição,
+                entidades e principais lideranças do setor.
+              </p>
+            </div>
+          </li>
+          <li class="frente reveal">
+            <span class="frente-passo">05</span>
+            <div class="frente-corpo">
+              <h3>Geração de valor</h3>
+              <p>
+                Transformação da força coletiva dos associados em melhores
+                condições comerciais, novas receitas e maior competitividade.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ── SEÇÃO 05 — EXPERIÊNCIA EM ASSOCIATIVISMO ── -->
+    <section id="associativismo" class="bloco bloco--cinza" aria-labelledby="assoc-titulo">
+      <div class="container assoc-inner">
+        <div class="assoc-texto reveal">
+          <div class="section-label">Associativismo na prática</div>
+          <h2 id="assoc-titulo">
+            Conhecimento prático de como uma rede cresce e gera valor.
+          </h2>
+          <p>
+            Jefferson foi o primeiro gestor de negócios da Rede Drogarias Max,
+            participando diretamente de sua expansão de 60 para 246 lojas.
+          </p>
+          <p>
+            Também esteve envolvido na criação e implantação, no Rio de Janeiro,
+            de um modelo de captação de verbas de mídia e recursos institucionais
+            para a Maxcenter, desenvolvido a partir de uma iniciativa discutida
+            com Paulo Panarello.
+          </p>
+          <p>
+            Posteriormente, na Panarello, atuou como Gerente Comercial e Gerente
+            Nacional responsável pelas redes ligadas ao associativismo.
+          </p>
+        </div>
+
+        <ol class="timeline reveal" aria-label="Linha do tempo resumida">
+          <li>
+            <span class="tl-dot" aria-hidden="true"></span>
+            <div>
+              <strong>Rede Drogarias Max</strong>
+              <span>Primeiro gestor de negócios &middot; expansão de 60 → 246 lojas</span>
+            </div>
+          </li>
+          <li>
+            <span class="tl-dot" aria-hidden="true"></span>
+            <div>
+              <strong>Maxcenter</strong>
+              <span>Modelo de captação de verbas de mídia e recursos institucionais (RJ)</span>
+            </div>
+          </li>
+          <li>
+            <span class="tl-dot" aria-hidden="true"></span>
+            <div>
+              <strong>Panarello</strong>
+              <span>Gerente Comercial e Gerente Nacional das redes de associativismo</span>
+            </div>
+          </li>
+          <li>
+            <span class="tl-dot" aria-hidden="true"></span>
+            <div>
+              <strong>Varejo</strong>
+              <span>Gestão direta e expansão de operação de farmácias</span>
+            </div>
+          </li>
+          <li>
+            <span class="tl-dot" aria-hidden="true"></span>
+            <div>
+              <strong>Distribuição regional</strong>
+              <span>17 anos como Diretor Comercial</span>
+            </div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ── SEÇÃO 06 — PLANO INICIAL DE ATUAÇÃO ── -->
+    <section id="plano" class="bloco" aria-labelledby="plano-titulo">
+      <div class="container">
+        <div class="bloco-head reveal">
+          <div class="section-label">Plano inicial de atuação</div>
+          <h2 id="plano-titulo">Dos primeiros alinhamentos à ativação comercial.</h2>
+          <p class="section-corpo">
+            Uma visão inicial para transformar a ideia da associação em estrutura,
+            agenda comercial e capacidade de execução.
+          </p>
+        </div>
+
+        <div class="fases">
+          <article class="fase reveal">
+            <header>
+              <span class="fase-tag">Fase 01</span>
+              <span class="fase-prazo">Primeiros 30 dias</span>
+            </header>
+            <h3>Escuta e diagnóstico</h3>
+            <ul role="list">
+              <li>Escuta dos empresários fundadores.</li>
+              <li>Compreensão dos objetivos da associação.</li>
+              <li>Mapeamento das redes e empresários prioritários.</li>
+              <li>Levantamento de parceiros estratégicos.</li>
+              <li>Definição da proposta de valor inicial.</li>
+            </ul>
+          </article>
+          <article class="fase reveal">
+            <header>
+              <span class="fase-tag">Fase 02</span>
+              <span class="fase-prazo">De 31 a 60 dias</span>
+            </header>
+            <h3>Estruturação comercial</h3>
+            <ul role="list">
+              <li>Desenvolvimento do plano comercial.</li>
+              <li>Criação do modelo de atração de associados.</li>
+              <li>Organização do pipeline de negociações.</li>
+              <li>Construção da agenda com indústria e distribuição.</li>
+              <li>Definição dos principais indicadores.</li>
+            </ul>
+          </article>
+          <article class="fase reveal">
+            <header>
+              <span class="fase-tag">Fase 03</span>
+              <span class="fase-prazo">De 61 a 100 dias</span>
+            </header>
+            <h3>Ativação e execução</h3>
+            <ul role="list">
+              <li>Início da prospecção estruturada.</li>
+              <li>Apresentação da associação ao mercado.</li>
+              <li>Desenvolvimento das primeiras negociações comerciais.</li>
+              <li>Ativação dos projetos prioritários.</li>
+              <li>Acompanhamento dos primeiros resultados.</li>
+            </ul>
+          </article>
+        </div>
+        <p class="plano-obs reveal">
+          Visão preliminar de trabalho, sujeita ao alinhamento com o grupo de
+          empresários. Não se trata de uma promessa fechada.
         </p>
       </div>
+    </section>
 
-    </div>
-  </section>
-
-  <!-- ── RESULTADOS (ANTES E DEPOIS) ── -->
-  <section id="resultados" aria-labelledby="res-titulo" class="sec-cinza">
-    <div class="container">
-      <div class="section-label">03 &mdash; Antes e Depois</div>
-      <h2 id="res-titulo">Menos incrustação.<br>Mais eficiência no fluxo.</h2>
-      <p class="section-corpo">
-        A atuação do MERUS contribui para superfícies internas mais limpas,
-        menor acúmulo de depósitos e melhor estabilidade operacional.
-      </p>
-
-      <div class="ba-grid">
-
-        <div class="ba-card">
-          <div class="ba" style="--pos:50%">
-            <img class="ba-img" src="/heat-enchance-depois.png" alt="Trocador de calor após o MERUS: superfície mais limpa" loading="lazy" width="700" height="525" />
-            <img class="ba-img ba-img--antes" src="/heat-enchance-antes.png" alt="Trocador de calor antes do MERUS: depósitos acumulados" loading="lazy" width="700" height="525" />
-            <span class="ba-tag ba-tag--antes">Antes</span>
-            <span class="ba-tag ba-tag--depois">Depois</span>
-            <div class="ba-line" aria-hidden="true">
-              <span class="ba-grip">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M6 4L2 8l4 4M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </div>
-            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois — trocador de calor" />
-          </div>
-          <div class="ba-legendas">
-            <p><strong>Antes</strong> Depósitos acumulados e redução da passagem interna.</p>
-            <p><strong>Depois</strong> Superfície mais limpa e melhor condição de fluxo.</p>
-          </div>
+    <!-- ── SEÇÃO 07 — RELACIONAMENTO INSTITUCIONAL ── -->
+    <section id="relacionamento" class="bloco bloco--cinza" aria-labelledby="rel-titulo">
+      <div class="container">
+        <div class="bloco-head reveal">
+          <div class="section-label">Relacionamento institucional</div>
+          <h2 id="rel-titulo">
+            Credibilidade construída ao longo de mais de quatro décadas.
+          </h2>
+          <p class="section-corpo">
+            Ao longo de sua trajetória, Jefferson construiu relacionamento com
+            presidentes de entidades do varejo associativista, empresários de
+            redes, executivos de distribuidoras nacionais e regionais e
+            lideranças comerciais das principais indústrias farmacêuticas do país.
+            Também participou de forma recorrente dos principais encontros, feiras
+            e eventos estratégicos do setor.
+          </p>
         </div>
 
-        <div class="ba-card">
-          <div class="ba" style="--pos:50%">
-            <img class="ba-img" src="/corrosao-depois.png" alt="Tubulação após o MERUS: menor acúmulo e corrosão" loading="lazy" width="700" height="525" />
-            <img class="ba-img ba-img--antes" src="/corrosao-antes.png" alt="Tubulação antes do MERUS: corrosão e biofilme" loading="lazy" width="700" height="525" />
-            <span class="ba-tag ba-tag--antes">Antes</span>
-            <span class="ba-tag ba-tag--depois">Depois</span>
-            <div class="ba-line" aria-hidden="true">
-              <span class="ba-grip">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M6 4L2 8l4 4M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </div>
-            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois — corrosão e biofilme" />
-          </div>
-          <div class="ba-legendas">
-            <p><strong>Antes</strong> Corrosão visível e formação de biofilme no sistema.</p>
-            <p><strong>Depois</strong> Menor acúmulo, melhor estabilidade e manutenção reduzida.</p>
-          </div>
-        </div>
-
-        <div class="ba-card">
-          <div class="ba" style="--pos:50%">
-            <img class="ba-img" src="/steam-boiler-depois.png" alt="Caldeira após o MERUS: superfície tratada" loading="lazy" width="700" height="525" />
-            <img class="ba-img ba-img--antes" src="/steam-boiler-antes.png" alt="Caldeira antes do MERUS: incrustação na superfície" loading="lazy" width="700" height="525" />
-            <span class="ba-tag ba-tag--antes">Antes</span>
-            <span class="ba-tag ba-tag--depois">Depois</span>
-            <div class="ba-line" aria-hidden="true">
-              <span class="ba-grip">
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M6 4L2 8l4 4M10 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </span>
-            </div>
-            <input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Comparar antes e depois — caldeira a vapor" />
-          </div>
-          <div class="ba-legendas">
-            <p><strong>Antes</strong> Incrustação e perda de eficiência térmica.</p>
-            <p><strong>Depois</strong> Superfície tratada e melhor desempenho operacional.</p>
-          </div>
-        </div>
-
-      </div>
-
-      <p class="res-apoio">
-        Mais do que tratar a água, o MERUS ajuda a preservar a eficiência
-        do sistema ao longo do tempo.
-      </p>
-      <p class="res-micro">
-        Resultados podem variar conforme fluido, material, histórico do sistema e condições operacionais.
-      </p>
-    </div>
-  </section>
-
-  <!-- ── APLICAÇÕES ── -->
-  <section id="aplicacoes" aria-labelledby="ap-titulo">
-    <div class="container">
-      <div class="section-label">04 &mdash; Aplicações</div>
-      <h2 id="ap-titulo">
-        Aplicado em infraestrutura<br>crítica de Oil &amp; Gas.
-      </h2>
-      <p class="section-corpo">
-        O MERUS atua no nível de componente e sistema, endereçando problemas de
-        qualidade de fluidos em toda a cadeia de produção e processamento.
-      </p>
-      <div class="apps-slider" id="apps-slider" role="list">
-
-        <article class="app-card" style="--card-img:url('/cards/trocadores-de-calor.png')" role="listitem" tabindex="0">
-          <div class="app-card__inner">
-            <div class="app-card__face app-card__front">
-              <span class="app-card__icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><rect x="4" y="13" width="32" height="14" rx="2" stroke="currentColor" stroke-width="1.5"/><line x1="10" y1="13" x2="10" y2="27" stroke="currentColor" stroke-width="1.5"/><line x1="16" y1="13" x2="16" y2="27" stroke="currentColor" stroke-width="1.5"/><line x1="22" y1="13" x2="22" y2="27" stroke="currentColor" stroke-width="1.5"/><line x1="28" y1="13" x2="28" y2="27" stroke="currentColor" stroke-width="1.5"/><line x1="4" y1="20" x2="2" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="36" y1="20" x2="38" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-              <div class="app-card__txt">
-                <h3>Trocadores de Calor</h3>
-                <p>Eficiência térmica preservada, com menos limpeza química.</p>
-              </div>
-              <span class="app-card__flip" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 0 1 10-4.5M14 8a6 6 0 0 1-10 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 2v2.5H9.5M4 14v-2.5H6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ver imagem</span>
-            </div>
-            <div class="app-card__face app-card__back">
-              <div class="app-card__img" aria-hidden="true"></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="app-card" style="--card-img:url('/cards/linhas-de-fluxo-risers.png')" role="listitem" tabindex="0">
-          <div class="app-card__inner">
-            <div class="app-card__face app-card__front">
-              <span class="app-card__icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><line x1="2" y1="17" x2="38" y2="17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="23" x2="38" y2="23" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><rect x="16" y="14" width="8" height="12" rx="2" stroke="currentColor" stroke-width="1.5" fill="none"/></svg></span>
-              <div class="app-card__txt">
-                <h3>Linhas de Fluxo e Risers</h3>
-                <p>Menos cera e incrustação em linhas subsea e topside.</p>
-              </div>
-              <span class="app-card__flip" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 0 1 10-4.5M14 8a6 6 0 0 1-10 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 2v2.5H9.5M4 14v-2.5H6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ver imagem</span>
-            </div>
-            <div class="app-card__face app-card__back">
-              <div class="app-card__img" aria-hidden="true"></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="app-card" style="--card-img:url('/cards/separadores.png')" role="listitem" tabindex="0">
-          <div class="app-card__inner">
-            <div class="app-card__face app-card__front">
-              <span class="app-card__icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><rect x="6" y="8" width="28" height="24" rx="3" stroke="currentColor" stroke-width="1.5"/><line x1="6" y1="20" x2="34" y2="20" stroke="currentColor" stroke-width="1" opacity="0.45"/><path d="M13 8L13 4 M27 8L27 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M17 32L17 36 M23 32L23 36" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-              <div class="app-card__txt">
-                <h3>Separadores</h3>
-                <p>Melhor separação óleo-água-gás, com menos emulsão.</p>
-              </div>
-              <span class="app-card__flip" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 0 1 10-4.5M14 8a6 6 0 0 1-10 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 2v2.5H9.5M4 14v-2.5H6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ver imagem</span>
-            </div>
-            <div class="app-card__face app-card__back">
-              <div class="app-card__img" aria-hidden="true"></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="app-card" style="--card-img:url('/cards/captacao-agua-mar.png')" role="listitem" tabindex="0">
-          <div class="app-card__inner">
-            <div class="app-card__face app-card__front">
-              <span class="app-card__icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><path d="M7 28Q13 20 20 24Q27 28 33 20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M7 34Q13 26 20 30Q27 34 33 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.4"/><path d="M20 5L20 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15 10L20 5L25 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <div class="app-card__txt">
-                <h3>Captação de Água do Mar</h3>
-                <p>Controle do crescimento marinho em telas e filtros.</p>
-              </div>
-              <span class="app-card__flip" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 0 1 10-4.5M14 8a6 6 0 0 1-10 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 2v2.5H9.5M4 14v-2.5H6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ver imagem</span>
-            </div>
-            <div class="app-card__face app-card__back">
-              <div class="app-card__img" aria-hidden="true"></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="app-card" style="--card-img:url('/cards/loops-de-resfriamento.png')" role="listitem" tabindex="0">
-          <div class="app-card__inner">
-            <div class="app-card__face app-card__front">
-              <span class="app-card__icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="13" stroke="currentColor" stroke-width="1.5" stroke-dasharray="3 2"/><circle cx="20" cy="20" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M20 7L20 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M26 14L22 20L26 26" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <div class="app-card__txt">
-                <h3>Loops de Resfriamento</h3>
-                <p>Troca térmica estável e manutenção mais espaçada.</p>
-              </div>
-              <span class="app-card__flip" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 0 1 10-4.5M14 8a6 6 0 0 1-10 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 2v2.5H9.5M4 14v-2.5H6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ver imagem</span>
-            </div>
-            <div class="app-card__face app-card__back">
-              <div class="app-card__img" aria-hidden="true"></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="app-card" style="--card-img:url('/cards/plataformas-offshore.png')" role="listitem" tabindex="0">
-          <div class="app-card__inner">
-            <div class="app-card__face app-card__front">
-              <span class="app-card__icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><rect x="10" y="14" width="20" height="14" rx="1" stroke="currentColor" stroke-width="1.5"/><line x1="14" y1="14" x2="14" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="26" y1="14" x2="26" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="10" y1="28" x2="6" y2="35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="30" y1="28" x2="34" y2="35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="20" y1="28" x2="20" y2="35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><line x1="3" y1="35" x2="37" y2="35" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></span>
-              <div class="app-card__txt">
-                <h3>Plataformas Offshore</h3>
-                <p>Sistema completo tratado, sem logística química.</p>
-              </div>
-              <span class="app-card__flip" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 0 1 10-4.5M14 8a6 6 0 0 1-10 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 2v2.5H9.5M4 14v-2.5H6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ver imagem</span>
-            </div>
-            <div class="app-card__face app-card__back">
-              <div class="app-card__img" aria-hidden="true"></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="app-card" style="--card-img:url('/cards/agua-produzida.png')" role="listitem" tabindex="0">
-          <div class="app-card__inner">
-            <div class="app-card__face app-card__front">
-              <span class="app-card__icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><rect x="6" y="13" width="28" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M14 13L14 7L22 7L22 13" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><line x1="6" y1="22" x2="34" y2="22" stroke="currentColor" stroke-width="1" stroke-dasharray="2 2" opacity="0.4"/><circle cx="20" cy="27" r="2" stroke="currentColor" stroke-width="1.2"/></svg></span>
-              <div class="app-card__txt">
-                <h3>Água Produzida</h3>
-                <p>Menos incrustação e biofouling em reinjeção e descarte.</p>
-              </div>
-              <span class="app-card__flip" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 0 1 10-4.5M14 8a6 6 0 0 1-10 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 2v2.5H9.5M4 14v-2.5H6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ver imagem</span>
-            </div>
-            <div class="app-card__face app-card__back">
-              <div class="app-card__img" aria-hidden="true"></div>
-            </div>
-          </div>
-        </article>
-
-        <article class="app-card" style="--card-img:url('/cards/bombas-compressores.png')" role="listitem" tabindex="0">
-          <div class="app-card__inner">
-            <div class="app-card__face app-card__front">
-              <span class="app-card__icon" aria-hidden="true"><svg viewBox="0 0 40 40" fill="none"><circle cx="20" cy="22" r="10" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="12" x2="20" y2="7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M16 17L20 22L24 17" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="20" cy="22" r="3" stroke="currentColor" stroke-width="1.5"/></svg></span>
-              <div class="app-card__txt">
-                <h3>Bombas e Compressores</h3>
-                <p>Proteção de internos e menos resistência hidráulica.</p>
-              </div>
-              <span class="app-card__flip" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none"><path d="M2 8a6 6 0 0 1 10-4.5M14 8a6 6 0 0 1-10 4.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/><path d="M12 2v2.5H9.5M4 14v-2.5H6.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Ver imagem</span>
-            </div>
-            <div class="app-card__face app-card__back">
-              <div class="app-card__img" aria-hidden="true"></div>
-            </div>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CASE: ARABIA I ── -->
-  <section id="case-arabia" aria-labelledby="case-titulo" class="sec-cinza">
-    <div class="case-media" aria-hidden="true">
-      <video src="/arabia-i.mp4" autoplay loop muted playsinline preload="metadata"></video>
-    </div>
-    <div class="container case-inner">
-      <div class="case-texto">
-        <div class="section-label">05 &mdash; Em Operação</div>
-        <h2 id="case-titulo">Cliente internacional<br>em operação no Brasil</h2>
-        <p class="case-sub">Jackup &middot; Borr Drilling &middot; Arabia I</p>
-        <p class="case-contrato">Contrato Petrobras</p>
-
-        <ul class="case-specs" role="list">
-          <li><span class="spec-nome">Deep well risers</span><span class="spec-tag">MERUS Chain</span></li>
-          <li><span class="spec-nome">Raw water pump</span><span class="spec-tag">MERUS Chain</span></li>
-          <li><span class="spec-nome">Brake resistors</span><span class="spec-tag">MERUS Ring</span></li>
-          <li><span class="spec-nome">Engine inlet</span><span class="spec-tag">MERUS Ring</span></li>
-          <li><span class="spec-nome">Compressors</span><span class="spec-tag">MERUS Ring</span></li>
-          <li><span class="spec-nome">Main chiller unit</span><span class="spec-tag">MERUS Ring</span></li>
-          <li><span class="spec-nome">Fire fighting lines</span><span class="spec-tag">MERUS Ring</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ── CLIENTES ── -->
-  <section id="clientes" aria-labelledby="cl-titulo">
-    <div class="container">
-      <div class="section-label">06 &mdash; Histórico em Campo</div>
-      <h2 id="cl-titulo">
-        Validado por operadoras<br>que não aceitam promessas.
-      </h2>
-      <p class="section-corpo">
-        Mais de 25 anos de instalações documentadas em plataformas offshore, FPSOs,
-        refinarias e plantas industriais.
-      </p>
-
-      <div class="logos-marquee" aria-label="Operadoras que utilizam MERUS">
-        <div class="logos-viewport">
-          <div class="logos-group">
-            <img src="/logos/aramco.png" alt="Saudi Aramco" loading="lazy" />
-            <img src="/logos/adnoc.png" alt="ADNOC" loading="lazy" />
-            <img src="/logos/shell.png" alt="Shell" loading="lazy" />
-            <img src="/logos/transocean.png" alt="Transocean" loading="lazy" />
-            <img src="/logos/wintershall.png" alt="Wintershall" loading="lazy" />
-            <img src="/logos/petrobras.png" alt="Petrobras" loading="lazy" />
-            <img src="/logos/pertamina.png" alt="Pertamina" loading="lazy" />
-          </div>
-          <div class="logos-group" aria-hidden="true">
-            <img src="/logos/aramco.png" alt="" loading="lazy" />
-            <img src="/logos/adnoc.png" alt="" loading="lazy" />
-            <img src="/logos/shell.png" alt="" loading="lazy" />
-            <img src="/logos/transocean.png" alt="" loading="lazy" />
-            <img src="/logos/wintershall.png" alt="" loading="lazy" />
-            <img src="/logos/petrobras.png" alt="" loading="lazy" />
-            <img src="/logos/pertamina.png" alt="" loading="lazy" />
-          </div>
+        <div class="universos">
+          <article class="universo reveal">
+            <span class="universo-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none"><path d="M5 27V11l7-4 7 4v16M19 27V15l8-4v16M5 27h22M9 14v2M9 19v2M15 14v2M15 19v2M23 18v2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Indústria</h3>
+            <p>Lideranças comerciais das principais indústrias farmacêuticas.</p>
+          </article>
+          <article class="universo reveal">
+            <span class="universo-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none"><path d="M3 12h17v9H3zM20 15h5l4 4v2h-9zM8.5 24a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5ZM23.5 24a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Distribuição</h3>
+            <p>Executivos de distribuidoras nacionais e regionais.</p>
+          </article>
+          <article class="universo reveal">
+            <span class="universo-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none"><path d="M5 11h22l-1.5 15a2 2 0 0 1-2 1.8H8.5a2 2 0 0 1-2-1.8L5 11ZM11 11V8a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <h3>Varejo</h3>
+            <p>Empresários de redes e operações de farmácias.</p>
+          </article>
+          <article class="universo reveal">
+            <span class="universo-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none"><circle cx="16" cy="9" r="4" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="21" r="3.5" stroke="currentColor" stroke-width="1.5"/><circle cx="25" cy="21" r="3.5" stroke="currentColor" stroke-width="1.5"/><path d="M14 12.5 9 18M18 12.5l5 5.5M10.5 21h11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </span>
+            <h3>Associativismo</h3>
+            <p>Presidentes de entidades do varejo associativista.</p>
+          </article>
         </div>
       </div>
+    </section>
 
-      <p class="cl-nota">
-        Referências disponíveis mediante solicitação sob NDA. Dados de campo e relatórios
-        de inspeção compartilhados durante avaliação técnica.
-      </p>
-    </div>
-  </section>
+    <!-- ── SEÇÃO 08 — ENCERRAMENTO ── -->
+    <section id="contato" class="fechamento" aria-labelledby="fech-titulo">
+      <span class="hero-grid" aria-hidden="true"></span>
+      <div class="container fechamento-inner reveal">
+        <div class="section-label section-label--claro">Encerramento</div>
+        <h2 id="fech-titulo" class="tx-claro">
+          Uma nova associação precisa nascer com visão, relacionamento e
+          capacidade de execução.
+        </h2>
+        <p class="fechamento-texto">
+          Jefferson Lima coloca sua experiência à disposição do grupo de
+          empresários responsável pela criação da nova associação, com a missão
+          de liderar sua estruturação comercial, desenvolver associados,
+          construir parcerias e transformar força coletiva em resultados.
+        </p>
+
+        <div class="assinatura">
+          <strong>Jefferson Lima</strong>
+          <span>Administrador de Empresas</span>
+          <span>MBA em Gestão de Negócios</span>
+          <span>Executivo do Mercado Farmacêutico</span>
+        </div>
+
+        <div class="fechamento-acoes">
+          <a href={EMAIL} class="btn-primario btn-primario--claro">
+            Conversar com Jefferson
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
+          <a href={WHATSAPP_LINK} class="btn-whats" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2Zm5.8 14.13c-.25.7-1.44 1.33-1.99 1.41-.53.08-1.17.11-1.89-.12-.43-.14-.99-.32-1.7-.63-2.99-1.29-4.94-4.3-5.09-4.5-.15-.2-1.22-1.62-1.22-3.09 0-1.47.77-2.2 1.04-2.5.27-.3.59-.37.79-.37l.57.01c.18 0 .43-.07.67.51.25.6.84 2.07.91 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.4-.45.53-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12.99 2.07 1.3 2.37 1.45.3.15.47.12.65-.07.18-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2 .96.3.15.5.22.57.35.07.12.07.72-.18 1.42Z"/>
+            </svg>
+            Enviar mensagem pelo WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- ── FOOTER ── -->
   <footer class="footer">
     <div class="container footer-inner">
       <div class="footer-brand">
-        <div class="footer-logos">
-          <img src="/merus-logo2.svg" alt="MERUS" width="100" height="48" class="footer-logo" />
-          <span class="footer-logo-sep" aria-hidden="true"></span>
-          <img src="/gavea-green-bco.png" alt="Gavea Green" class="footer-logo-gavea" />
-        </div>
-        <p>Tratamento físico de fluidos.<br>Fabricado na Alemanha desde 1995.</p>
+        <strong>Jefferson Lima</strong>
+        <span>Superintendência Comercial &middot; Mercado Farmacêutico</span>
       </div>
       <nav class="footer-links" aria-label="Navegação do rodapé">
-        <a href="#solucao">Solução</a>
-        <a href="#tecnologia">Tecnologia</a>
-        <a href="#aplicacoes">Aplicações</a>
-        <a href="#clientes">Clientes</a>
+        <a href="#inicio">Início</a>
+        <a href="#mercado">Trajetória</a>
+        <a href="#numeros">Resultados</a>
+        <a href="#papel">Contribuição</a>
+        <a href="#plano">Plano inicial</a>
+        <a href="#contato">Contato</a>
       </nav>
-      <div class="footer-legal">
-        <p>&copy; {year} MERUS Annex GmbH &mdash; Stuttgart, Alemanha</p>
-        <p class="demo-tag">Página demonstrativa — não para uso comercial</p>
-      </div>
+      <p class="footer-legal">
+        &copy; <span id="ano">2026</span> Jefferson Lima. Apresentação de posicionamento executivo.
+      </p>
     </div>
   </footer>
 
-  <!-- Vídeo travado: scrub 1:1 no scroll (frente ao descer, reverse ao subir) -->
+  <!-- Botão flutuante de WhatsApp -->
+  <a
+    href={WHATSAPP_LINK}
+    class="whats-float"
+    target="_blank"
+    rel="noopener"
+    aria-label="Falar com Jefferson pelo WhatsApp"
+  >
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+      <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.84 9.84 0 0 0 12.04 2Zm5.8 14.13c-.25.7-1.44 1.33-1.99 1.41-.53.08-1.17.11-1.89-.12-.43-.14-.99-.32-1.7-.63-2.99-1.29-4.94-4.3-5.09-4.5-.15-.2-1.22-1.62-1.22-3.09 0-1.47.77-2.2 1.04-2.5.27-.3.59-.37.79-.37l.57.01c.18 0 .43-.07.67.51.25.6.84 2.07.91 2.22.07.15.12.32.02.52-.1.2-.15.32-.3.5-.15.18-.31.4-.45.53-.15.15-.3.31-.13.6.17.3.76 1.25 1.63 2.02 1.12.99 2.07 1.3 2.37 1.45.3.15.47.12.65-.07.18-.2.74-.86.94-1.16.2-.3.4-.25.67-.15.27.1 1.71.81 2 .96.3.15.5.22.57.35.07.12.07.72-.18 1.42Z"/>
+    </svg>
+  </a>
+
+  <!-- Interações: nav, menu mobile, reveal, contadores, progresso -->
   <script is:inline>
     (function () {
-      var stage = document.getElementById('vstage');
-      var video = document.getElementById('bgvideo');
-      if (!stage || !video) return;
-
-      var prefersReduced =
+      var reduce =
         window.matchMedia &&
-        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-      var duration = 0;
-      var ticking = false;
+      // Ano no rodapé
+      var ano = document.getElementById("ano");
+      if (ano) ano.textContent = String(new Date().getFullYear());
 
-      function update() {
-        ticking = false;
-        if (!duration) return;
-        var rect = stage.getBoundingClientRect();
-        var total = stage.offsetHeight - window.innerHeight;
-        if (total <= 0) return;
-        var progress = Math.min(1, Math.max(0, -rect.top / total));
-        var t = progress * duration;
-        if (Math.abs(video.currentTime - t) > 1 / 60) {
-          try { video.currentTime = t; } catch (e) {}
-        }
-      }
-
+      // Nav: reduz ao rolar + barra de progresso
+      var nav = document.querySelector("[data-nav]");
+      var bar = document.getElementById("progress-bar");
       function onScroll() {
-        if (!ticking) {
-          ticking = true;
-          requestAnimationFrame(update);
+        var y = window.scrollY || window.pageYOffset;
+        if (nav) nav.classList.toggle("is-scrolled", y > 24);
+        if (bar) {
+          var h = document.documentElement.scrollHeight - window.innerHeight;
+          bar.style.width = (h > 0 ? (y / h) * 100 : 0) + "%";
         }
       }
+      window.addEventListener("scroll", onScroll, { passive: true });
+      onScroll();
 
-      function ready() {
-        duration = video.duration || 0;
-        video.pause();
-        update();
-        if (prefersReduced) return;
-        window.addEventListener('scroll', onScroll, { passive: true });
-        window.addEventListener('resize', onScroll, { passive: true });
+      // Menu mobile
+      var toggle = document.querySelector("[data-menu-toggle]");
+      var menu = document.querySelector("[data-menu]");
+      function closeMenu() {
+        if (!menu || !toggle) return;
+        menu.hidden = true;
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.setAttribute("aria-label", "Abrir menu");
+        document.body.classList.remove("menu-open");
+      }
+      if (toggle && menu) {
+        toggle.addEventListener("click", function () {
+          var open = menu.hidden;
+          menu.hidden = !open;
+          toggle.setAttribute("aria-expanded", String(open));
+          toggle.setAttribute("aria-label", open ? "Fechar menu" : "Abrir menu");
+          document.body.classList.toggle("menu-open", open);
+        });
+        menu.querySelectorAll("a").forEach(function (a) {
+          a.addEventListener("click", closeMenu);
+        });
       }
 
-      if (video.readyState >= 1) {
-        ready();
+      // Reveal ao rolar
+      var reveals = document.querySelectorAll(".reveal");
+      if (reduce || !("IntersectionObserver" in window)) {
+        reveals.forEach(function (el) { el.classList.add("is-visible"); });
       } else {
-        video.addEventListener('loadedmetadata', ready, { once: true });
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add("is-visible");
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.16, rootMargin: "0px 0px -8% 0px" });
+        reveals.forEach(function (el) { io.observe(el); });
       }
-    })();
-  </script>
 
-  <!-- Slider comparativo antes/depois -->
-  <script is:inline>
-    (function () {
-      var sliders = document.querySelectorAll('.ba-range');
-      for (var i = 0; i < sliders.length; i++) {
-        (function (range) {
-          var ba = range.closest('.ba');
-          if (!ba) return;
-          function update() { ba.style.setProperty('--pos', range.value + '%'); }
-          range.addEventListener('input', update);
-          update();
-        })(sliders[i]);
-      }
-    })();
-  </script>
-
-  <!-- Slider de aplicações: arrastar para rolar -->
-  <script is:inline>
-    (function () {
-      var slider = document.getElementById('apps-slider');
-      if (!slider) return;
-      var down = false, moved = false, startX = 0, startLeft = 0;
-
-      slider.addEventListener('pointerdown', function (e) {
-        if (e.pointerType === 'mouse' && e.button !== 0) return;
-        if (e.pointerType !== 'mouse') return; // toque usa scroll nativo
-        down = true; moved = false;
-        startX = e.clientX; startLeft = slider.scrollLeft;
-        slider.classList.add('is-dragging');
-        try { slider.setPointerCapture(e.pointerId); } catch (err) {}
-      });
-
-      slider.addEventListener('pointermove', function (e) {
-        if (!down) return;
-        var dx = e.clientX - startX;
-        if (Math.abs(dx) > 4) moved = true;
-        slider.scrollLeft = startLeft - dx;
-      });
-
-      function end(e) {
-        if (!down) return;
-        down = false;
-        slider.classList.remove('is-dragging');
-        try { slider.releasePointerCapture(e.pointerId); } catch (err) {}
-      }
-      slider.addEventListener('pointerup', end);
-      slider.addEventListener('pointercancel', end);
-
-      // evita que o clique no botão dispare logo após um arraste
-      slider.addEventListener('click', function (e) {
-        if (moved) { e.preventDefault(); e.stopPropagation(); moved = false; }
-      }, true);
-
-      // roda do mouse vertical -> rola na horizontal
-      slider.addEventListener('wheel', function (e) {
-        if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
-          slider.scrollLeft += e.deltaY;
-          e.preventDefault();
+      // Contadores de números
+      var counters = document.querySelectorAll(".num[data-count]");
+      function animate(el) {
+        var alvo = parseInt(el.getAttribute("data-count"), 10) || 0;
+        if (reduce) { el.textContent = String(alvo); return; }
+        var ini = null, dur = 1300;
+        function step(ts) {
+          if (ini === null) ini = ts;
+          var p = Math.min(1, (ts - ini) / dur);
+          var eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = String(Math.round(eased * alvo));
+          if (p < 1) requestAnimationFrame(step);
+          else el.textContent = String(alvo);
         }
-      }, { passive: false });
+        requestAnimationFrame(step);
+      }
+      if (counters.length) {
+        if (reduce || !("IntersectionObserver" in window)) {
+          counters.forEach(animate);
+        } else {
+          var io2 = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) { animate(e.target); io2.unobserve(e.target); }
+            });
+          }, { threshold: 0.6 });
+          counters.forEach(function (el) { io2.observe(el); });
+        }
+      }
     })();
   </script>
-
 </Layout>
